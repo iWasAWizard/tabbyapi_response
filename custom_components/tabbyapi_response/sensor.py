@@ -7,8 +7,8 @@ from homeassistant.core import callback
 
 
 CONF_MODEL = "model"
-DEFAULT_NAME = "hassio_openai_response"
-DEFAULT_MODEL = "text-davinci-003"
+DEFAULT_NAME = "hassio_tabbyapi_response"
+DEFAULT_MODEL = None
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
