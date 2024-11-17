@@ -18,19 +18,21 @@ Head to **[This Link](https://platform.openai.com/account/api-keys)** to get you
 
 ## Installation
 **1.** 
-**(Manual)** Copy the **openai_response** folder to your Home Assistant's custom_components directory. If you don't have a **custom_components** directory, create one in the same directory as your **configuration.yaml** file.
+**(Manual)** Copy the **tabbyapi_response** folder to your Home Assistant's custom_components directory. If you don't have a **custom_components** directory, create one in the same directory as your **configuration.yaml** file.
 
-**(HACS)** Add this repository to HACS. https://github.com/Hassassistant/openai_response
+**(HACS)** Add this repository to HACS. https://github.com/iWasAWizard/tabbyapi_response
 
 **2.** Add the following lines to your Home Assistant **configuration.yaml** file:
 
 ```yaml
 sensor:
-  - platform: openai_response
+  - platform: tabbyapi_response
+    api_url: YOUR_TABBYAPI_ENDPOINT_URL
     api_key: YOUR_OPENAI_API_KEY
-    model: "text-davinci-003" # Optional, defaults to "text-davinci-003"
-    name: "hassio_openai_response" # Optional, defaults to "hassio_openai_response"
+    model: "text-davinci-003" # Optional, defaults to whatever model is currently loaded
+    name: "hassio_tabbyapi_response" # Optional, defaults to "hassio_tabbyapi_response"
 ```
+Replace **YOUR_TABBYAPI_ENDPOINT_URL** with the hostname and port of your TabbyAPI instance.
 Replace **YOUR_OPENAI_API_KEY** with your actual OpenAI API key.
 
 **3.** Restart Home Assistant.
