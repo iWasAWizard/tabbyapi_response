@@ -12,6 +12,7 @@ DEFAULT_MODEL = "text-davinci-003"
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
+        vol.Required(CONF_API_URL): cv.string,
         vol.Required(CONF_API_KEY): cv.string,
         vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
         vol.Optional(CONF_MODEL, default=DEFAULT_MODEL): cv.string,
@@ -19,10 +20,12 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 )
 
 async def async_setup_platform(hass, config, async_add_entities, discovery_info=None):
+    api_url = config[CONF_API_URL]
     api_key = config[CONF_API_KEY]
     name = config[CONF_NAME]
     model = config[CONF_MODEL]
 
+    openai.api_base = api_url
     openai.api_key = api_key
 
     async_add_entities([OpenAIResponseSensor(hass, name, model)], True)
